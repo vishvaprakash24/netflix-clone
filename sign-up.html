@@ -1,0 +1,154 @@
+<!-- signup form -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="img/icon">
+    <link rel="stylesheet" href="sign-in_style.css" />
+
+    <style>
+      .formerror {
+        color: red;
+        margin: auto;
+        align-items: center;
+        text-align: center; 
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">
+      <img src="logo.png" alt="" />
+    </div>
+
+    <div class="container">
+      <h1>Sign Up</h1>
+      <form
+        action="netflix-animation.html"
+        id="signUpForm"
+        name="myform"
+        method="post"
+      >
+        <input type="text" placeholder="Name" id='name' required name="fname" />
+        <div class="formerror"></div>
+        <input
+          type="email"
+          placeholder="Email"
+          id="email"
+          required
+          name="femail"
+        />
+        <div class="formerror"></div>
+        <input
+          type="tel"
+          placeholder="Phone Number"
+          id="phoneNumber1"
+          required
+          name="fphone"
+        />
+        <div class="formerror"></div>
+        <input
+          type="password"
+          placeholder="Create Password"
+          id="createPassword"
+          required
+          name="fpass"
+        />
+        <div class="formerror"></div>
+        <input type="submit" value="Sign Up" />
+        <br />
+        <input type="checkbox" />
+        <label>Terms & Privacy..</label>
+        <a href="#">Guidelines</a>
+      </form>
+      <div class="content" style="margin-top: 60px; font-size: 1.4vw;">
+        <h2 class="sup">
+          Existing user to Netflix?
+          <a href="sign-in.html" class="sup">Sign in now.</a>
+        </h2>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+  <script>
+  function seterror(id, error) {
+    const element = document.getElementById(id);
+    const errorElement = element.nextElementSibling;
+    errorElement.innerHTML = error;
+  }
+
+  function validateSignUpForm() {
+    const signUpForm = document.getElementById('signUpForm');
+    signUpForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phoneNumber = document.getElementById('phoneNumber1').value;
+      const createPassword = document.getElementById('createPassword').value;
+
+      var returnval = true;
+
+      if (!isValidName(name)) {
+        seterror('name', '*Length of name is too short');
+        returnval = false;
+      }
+
+      if (!isValidEmail(email)) {
+        seterror('email', '*Invalid email format');
+        returnval = false;
+      }
+      if (!isValidPhoneNumber(phoneNumber)) {
+        seterror('phoneNumber1', '*Phone number must be 10 digits');
+        returnval = false;
+      }
+
+      if (!isValidPassword(createPassword)) {
+        seterror('createPassword', '*Password must be at least 6 characters long');
+        returnval = false;
+      }
+
+      if (returnval) {
+        console.log('Sign-up success!');
+        resetForm();
+      }
+    });
+  }
+
+  function isValidName(name) {
+    return name.trim().length >= 5;
+  }
+
+  function isValidEmail(email) {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    return emailPattern.test(email);
+  }
+
+  function isValidPhoneNumber(phoneNumber) {
+    const phoneNumberPattern = /^\d{10}$/;
+    return phoneNumberPattern.test(phoneNumber);
+  }
+
+  function isValidPassword(password) {
+    return password.length >= 6;
+  }
+
+  function resetForm() {
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phoneNumber1').value = ''; 
+    document.getElementById('createPassword').value = '';
+    const errorMessages = document.getElementsByClassName('formerror');
+    for (let i = 0; i < errorMessages.length; i++) {
+      errorMessages[i].innerHTML = '';
+    }
+
+    window.location.href = 'netflix-animation.html';
+  }
+  validateSignUpForm();
+</script>
+
+</html>

@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,300;1,400&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  background-color: black;
+}
+
+.header, .body-section, .footer-container{
+  border-bottom: 5px solid #535251;
+}
+
+/* =================== header-section ================== */
+.header{
+  height: 100vh;
+  background-image: url(./images/header-image-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.container{
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.dropdown-container{
+ position: relative;
+}
+.dropdown-container, a{
+  text-decoration: none;
+ }
+.btn{
+  background-color: #E50815;
+  padding: 8px 15PX;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+.language-picker{
+  padding: 10px 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 1px solid #535251;
+  border-radius: 5px;
+}
+.language{
+  left: 5px;
+}
+.language, .drop-down{
+  position: absolute;
+  top: 5px
+}
+.drop-down{
+  right: -3px;
+  top: 6px;
+}
+.navbar{
+  margin: 0 100px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between; 
+}
+.right-half{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.content{
+  margin: 20vh auto;
+  width: 60%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content h1 , .content p{
+  margin-top: 20px;
+}
+.content h1{
+  font-size: 4.3vw;
+  font-weight: bold;
+}
+.content p{
+  font-size: 2vw;
+  font-weight: 450;
+}
+.email-container{
+  display: flex;
+  gap: 10px;
+  width: 70%;
+  margin-top: 20px;
+}
+.email-container > input{
+  flex-grow: 1;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0 10px;
+  color: #fff;
+  font-size: 1.5vw;
+  border-radius: 5px;
+}
+.get-started-btn{
+  font-size: 1.5vw;
+}
+
+/* ============ features section =================== */
+.body-section{
+  display: flex;
+  align-items: center;
+  padding: 40px 100px;
+}
+.left-item h1, .right-item h1{
+  font-size: 3vw;
+  margin-bottom: 20px;
+}
+.left-item p, .right-item p{
+  font-size: 1.6vw;
+}
+.right-item{
+  position: relative;
+}
+.right-item > video {
+  position: absolute;
+  left: 80px;
+  top: 20%;
+  z-index: -1;
+}
+
+.layout{
+  border: 2px solid #535251;
+  border-radius: 10px;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.layout p{
+  font-size: 1.5vw;
+  display: flex;
+  flex-direction: column;
+}
+.layout span{
+  color: blue;
+}
+.layout img{
+  width: 60px;
+}
+
+.static-left-item{
+  position: relative;
+}
+
+/* ================= faq section ============================= */
+.faq-container{
+  padding: 40px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.faq-container > h1{
+  font-size: 4vw;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.faq{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  padding: 0px 10px;
+  background-color: #202020;
+  transition-duration: 0.5s;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+.faq > p{
+  font-size: 1.8vw;
+}
+.faq > span{
+  font-size: 4vw;
+}
+.faq:hover{
+  background-color: #696060;
+}
+.faq-container > p{
+  font-size: 2.2vw;
+  margin: 20px 0;
+}
+
+.drop2{
+  right: 14px;
+}
+
+
+/* ==================== footer section ================= */
+.footer-container{
+  padding: 100px;
+  color: #AFAFAF;
+}
+.footer-container, .footer-container a{
+  color: #AFAFAF;
+}
+.links-container{
+  display: flex;
+  gap: 12vw;
+  justify-content: flex-start;
+  padding: 40px 0;
+  width: fit-content;
+  margin: 0 auto;
+}
+.links-item{
+  display: flex;
+  flex-direction: column;
+  gap: 2.5vw;
+}
+
+
+/* ================================= media-queries ====================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .body-section{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .content, .right-item {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .right-item p, .left-item p {
+    font-size: 18px;
+  }
+
+  .left-item h1, .right-item h1 {
+    font-size: 28px;
+  }
+
+  .navbar {
+    margin: 0 30px;
+  }
+
+  .container {
+    padding: 0 30px;
+  }
+
+  .content h1 {
+    font-size: 34px;
+  }
+
+  .content p {
+    font-size: 15px;
+  }
+
+  .email-container{
+    width: 80%;
+  }
+
+  .get-started-btn{
+    font-size: 15px;
+  }
+  
+  .footer-container{
+    padding: 40px;
+    }
+
+    .faq-container > h1{
+      font-size: 35px;
+    }
+
+    .faq{
+      width: 100%;
+      margin-left: 20px;
+      padding: 5px;
+    }
+    .faq > p{
+      font-size: 20px;
+    }
+
+    .faq > span{
+      font-size: 25px;
+    }
+    .links-container{
+      gap: 12vw;
+      width: fit-content;
+      margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+  .body-section{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  svg{
+    width: 95px;
+  }
+
+  .content, .right-item {
+    width: 90%;
+    margin-bottom: 30px;
+  }
+
+  .right-item p, .left-item p {
+    font-size: 18px;
+  }
+
+  .left-item h1, .right-item h1 {
+    font-size: 28px;
+  }
+
+  .right-item > img{
+    width: 460px;
+    margin-left: -85px;
+  }
+
+  .right-item > video{
+    width: 301px;
+    margin-left: -65px;
+  }
+
+  .navbar {
+    margin: 0 30px;
+  }
+
+  .container {
+    padding: 0 30px;
+  }
+
+  .content h1 {
+    font-size: 7vw;
+  }
+
+  .content p {
+    font-size: 3.5vw;
+  }
+
+  .email-container{
+    width: 90%;
+  }
+
+  .email-container input{
+    font-size: 3vw;
+  }
+  .get-started-btn{
+    font-size: 3vw;
+    width: fit-content;
+  }
+  /*==================== faq - section =================== */
+    .faq-container > h1{
+      font-size: 6vw;
+    }
+
+    .faq{
+      width: 100%;
+      margin-left: 20px;
+    }
+
+    .faq > p{
+      font-size: 3vw;
+    }
+    .faq > span{
+      font-size: 1.8vw;
+    }
+    .faq-container > p{
+      font-size: 25px;
+      margin-left: 15px;
+    }
+    /*=============== footer section ============= */
+    .footer-container{
+        padding: 40px;
+        }
+
+    .links-container{
+      gap: 4vw;
+      width: fit-content;
+      margin: 0 auto;
+    }
+}

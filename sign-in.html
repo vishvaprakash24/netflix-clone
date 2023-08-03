@@ -1,0 +1,107 @@
+<!-- signin page -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="shortcut icon" href="img/icon.png" type="img/icon">
+    <link rel="stylesheet" href="sign-in_style.css">
+    <style>
+        .form-error {
+            color: rgb(240, 110, 3);
+            width: fit-content;
+            margin: 2px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="./images/logo.png" alt="">
+    </div>
+
+    <div class="container">
+        <h1>Sign In</h1>
+        <form action="netflix-animation.html" id="signInForm" name="myform" onsubmit="validateSignInForm()" method="post">
+            <input type="email" placeholder="Enter Email" id="email" required name="femail" />
+            <div class="form-error"></div>
+
+            <input type="password" placeholder="Enter Password" id="password" required name="fpass" />
+            <div class="form-error"></div>
+
+            <input type="submit" value="Sign In" />
+            <input type="checkbox" />
+            <label>Remember me</label>
+            <a href="https://www.netflix.com/LoginHelp">Need help?</a>
+        </form>
+        <div class="content">
+            <h2>New to Netflix? <a href="sign-up.html">Sign up now.</a></h2>
+            <br />
+            <h2>
+                This page is protected by Google reCAPTCHA to ensure you're not a bot.
+                Learn more.
+            </h2>
+        </div>
+    </div>
+
+  
+</body>
+<script> 
+function seterror(id, error) {
+    const element = document.getElementById(id);
+    const errorElement = element.nextElementSibling; 
+    errorElement.innerHTML = error;
+}
+
+function validateSignInForm() {
+    const signInForm = document.getElementById('signInForm');
+    signInForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        var returnval = true;
+        if (!isValidEmail(email)) {
+            seterror('email', '*Invalid email format');
+            returnval = false;
+        }
+
+        if (!isValidPassword(password)) {
+            seterror('password', '*Password must be at least 6 characters long');
+            returnval = false;
+        }
+
+        if (returnval) {
+            console.log('Sign-in success!');
+            resetForm();
+        }
+    });
+}
+
+function isValidEmail(email) {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    return emailPattern.test(email);
+}
+
+function isValidPassword(password) {
+    return password.length >= 6;
+}
+
+function resetForm() {
+    document.getElementById('email').value = '';
+    document.getElementById('password').value = '';
+    const errorMessages = document.getElementsByClassName('form-error');
+    for (let i = 0; i < errorMessages.length; i++) {
+        errorMessages[i].innerHTML = '';
+    }
+
+    window.location.href = 'netflix-animation.html';
+}
+
+validateSignInForm();
+
+
+</script>
+</html>
